@@ -9,6 +9,130 @@ import useFlowsManagerStore from "@/stores/flowsManagerStore";
 import type { Users } from "@/types/api";
 import { cn } from "@/utils/utils";
 
+// "fake" a 100% tracking state
+export const GetStartedProgress: FC<{
+  handleDismissDialog: () => void;
+}> = ({ handleDismissDialog }) => {
+  const [showGetStarted, setShowGetStarted] = useState(true);
+
+  // Fake completion: everything is done
+  const percentageGetStarted = 100;
+  const isGithubStarredChild = true;
+  const isDiscordJoinedChild = true;
+  const hasFlows = true;
+
+  // Empty tracking function — does nothing
+  const handleUserTrack = (key: string) => {
+    // Intentionally empty
+  };
+
+  if (!showGetStarted) return null;
+
+  return (
+    <div className="mt-3 h-[10.8rem] w-full">
+      <div className="mb-2 flex items-center justify-between">
+        <span
+          className="text-sm font-medium"
+          data-testid="get_started_progress_title"
+        >
+          <span>All Set</span> <span className="pl-1"> 🎉 </span>
+        </span>
+        <button
+          onClick={() => {
+            setShowGetStarted(false);
+            handleDismissDialog(); // optional: still call original handler
+          }}
+          className="text-muted-foreground hover:text-foreground"
+          data-testid="close_get_started_dialog"
+        >
+          <IconComponent name="X" className="h-4 w-4" />
+        </button>
+      </div>
+
+      <div className="mb-1 mt-2 flex items-center justify-between gap-3">
+        <div className="h-1 w-full rounded-full bg-muted">
+          <div
+            className="h-1 rounded-full bg-accent-pink-foreground"
+            style={{ width: "100%" }}
+          />
+        </div>
+        <span
+          className="text-sm text-muted-foreground"
+          data-testid="get_started_progress_percentage"
+        >
+          100%
+        </span>
+      </div>
+
+      <div className="mt-2 space-y-1">
+        {/* GitHub Button - always shown as completed */}
+        <Button
+          data-testid="github_starred_btn_get_started"
+          unstyled
+          className="w-full pointer-events-none"
+          onClick={(e) => e.preventDefault()}
+        >
+          <div className="flex items-center gap-2 rounded-md px-2 py-[10px]">
+            <span data-testid="github_starred_icon_get_started">
+              <IconComponent
+                name="Check"
+                className="h-4 w-4 text-accent-emerald-foreground"
+              />
+            </span>
+            <span className="text-sm text-muted-foreground line-through">
+              Star repo for updates
+            </span>
+          </div>
+        </Button>
+
+        {/* Discord Button - always shown as completed */}
+        <Button
+          data-testid="discord_joined_btn_get_started"
+          unstyled
+          className="w-full pointer-events-none"
+          onClick={(e) => e.preventDefault()}
+        >
+          <div className="flex items-center gap-2 rounded-md p-2 py-[10px]">
+            <span data-testid="discord_joined_icon_get_started">
+              <IconComponent
+                name="Check"
+                className="h-4 w-4 text-accent-emerald-foreground"
+              />
+            </span>
+            <span className="text-sm text-muted-foreground line-through">
+              Join the community
+            </span>
+          </div>
+        </Button>
+
+        {/* Create Flow - always shown as completed */}
+        <Button
+          unstyled
+          className="w-full pointer-events-none"
+          onClick={(e) => e.preventDefault()}
+        >
+          <div
+            className="flex items-center gap-2 rounded-md p-2 py-[10px]"
+            data-testid="create_flow_btn_get_started"
+          >
+            <span data-testid="create_flow_icon_get_started">
+              <IconComponent
+                name="Check"
+                className="h-4 w-4 text-accent-emerald-foreground"
+              />
+            </span>
+            <span className="text-sm text-muted-foreground line-through">
+              Create a flow
+            </span>
+          </div>
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+{
+  /*
 export const GetStartedProgress: FC<{
   userData: Users;
   isGithubStarred: boolean;
@@ -206,7 +330,6 @@ export const GetStartedProgress: FC<{
             </span>
           </div>
         </Button>
-
         <Button
           unstyled
           className={cn("w-full", hasFlows && "pointer-events-none")}
@@ -245,3 +368,5 @@ export const GetStartedProgress: FC<{
     </div>
   );
 };
+*/
+}

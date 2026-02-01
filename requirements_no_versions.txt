@@ -1,0 +1,12 @@
+anyio
+fastapi
+psycopg2
+psycopg2-binary
+pyparsing
+rdflib
+setuptools
+sniffio
+SPARQLWrapper
+starlette
+uv
+wheel

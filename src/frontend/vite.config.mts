@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => {
   }, {});
 
   return {
-    base: BASENAME || "",
+    base: BASENAME || "/",
     build: {
       outDir: "build",
     },

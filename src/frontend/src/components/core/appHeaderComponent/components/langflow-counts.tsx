@@ -15,6 +15,7 @@ export const LangflowCounts = () => {
 
   return (
     <div className="flex items-center gap-3">
+      {/*
       <ShadTooltip
         content="Go to GitHub repo"
         side="bottom"
@@ -60,6 +61,7 @@ export const LangflowCounts = () => {
           </div>
         </Button>
       </ShadTooltip>
+*/}
     </div>
   );
 };

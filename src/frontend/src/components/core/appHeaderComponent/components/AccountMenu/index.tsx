@@ -113,6 +113,7 @@ export const AccountMenu = () => {
                 </HeaderMenuItemButton>
               </div>
             )}
+            {/*
             <HeaderMenuItemLink
               newPage
               href={ENABLE_DATASTAX_LANGFLOW ? DATASTAX_DOCS_URL : DOCS_URL}
@@ -121,8 +122,10 @@ export const AccountMenu = () => {
                 Docs
               </span>
             </HeaderMenuItemLink>
+*/}
           </div>
 
+          {/*
           <div>
             <HeaderMenuItemLink newPage href={GITHUB_URL}>
               <span
@@ -159,6 +162,7 @@ export const AccountMenu = () => {
               </span>
             </HeaderMenuItemLink>
           </div>
+*/}
 
           <div className="flex items-center justify-between px-4 py-[6.5px] text-sm">
             <span className="">Theme</span>
